@@ -21,7 +21,7 @@ export default function Projects() {
           <li>Implemented efficient DOM-based message rendering, animated loading indicators, and chat history tracking to deliver a high-
             performance user experience.</li>
           <li>Usage analytics and latency tracing to drive prompt and UX improvements.</li>
-        </ul><div className="project-links"><a className="btn outline small ext" href="#" target="_blank" rel="noopener">GitHub ↗</a></div></div></Reveal>
+        </ul><div className="project-links"><a className="btn outline small ext" href="https://github.com/raviteja-1301/AI-Powered-Chatbot-Web-Application" target="_blank" rel="noopener">GitHub ↗</a></div></div></Reveal>
 
         <Reveal className="t-item"><div className="t-date">2024</div><div className="t-card"><h3>Book Recommendation & Analytics</h3><p className="stack">Python • Pandas • Apache Spark • Machine Learning • K-Means • Collaborative Filtering</p><ul>
           <li>Developed a collaborative filtering-based system for 1M+ ratings on 270K+ books, recommending top-rated books based on user
@@ -39,7 +39,7 @@ export default function Projects() {
           <li>Reduced missing-values impact from 100% to 0% and improved analysis time by 60%.</li>
           <li>Optimized data-ink ratio from 80% to 100%, improving chart clarity and interpretability.</li>
           <li>Integrated advanced filters, calculated fields, and drill-down capabilities, which reduced analysis time by 40%.</li>
-        </ul><div className="project-links"><a className="btn outline small ext" href="https://public.tableau.com/app/profile/raviteja.buchaiahgari/viz/IPLAnalyticsDashboard/Dashboard1" target="_blank" rel="noopener">Tableau Dashboard ↗</a></div></div></Reveal>
+        </ul><div className="project-links"><a className="btn outline small ext" href="https://github.com/raviteja-1301/IPL-Match-Analytics-Data-Visualization-using-Tableau" target="_blank" rel="noopener">Tableau Dashboard ↗</a></div></div></Reveal>
       </div>
     </section>
   )
