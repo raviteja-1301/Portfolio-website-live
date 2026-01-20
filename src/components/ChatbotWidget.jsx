@@ -229,7 +229,7 @@ function detectIntentWithTypos(q) {
 }
 
 async function callGemini({ text, context }) {
-  const key = import.meta.env.VITE_GEMINI_API_KEY;
+  const key = globalThis?.__RAVI_PORTFOLIO_ENV__?.VITE_GEMINI_API_KEY;
   if (!key) {
     return "Gemini API key is not set. Add VITE_GEMINI_API_KEY to your .env to enable AI answers. For now, ask me about Projects, Skills, Experience, or Contact. 🙂";
   }

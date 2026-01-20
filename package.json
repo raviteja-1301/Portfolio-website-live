@@ -4,6 +4,8 @@
   "version": "23.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-env.mjs",
+    "prebuild": "node scripts/generate-env.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
