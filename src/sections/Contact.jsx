@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { EMAILJS } from '../config'
 import { MapPin, Mail, Phone, Linkedin, Github } from 'lucide-react'
+import Reveal from '../components/Reveal.jsx'
 
 export default function Contact() {
   const formRef = useRef(null)
@@ -48,11 +49,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section container">
-      <h2 className="section-title">Contact</h2>
+    <section id="contact" className="section container section-bg">
+      <h2 className="section-title"><Reveal>Contact</Reveal></h2>
       <div className="contact-grid">
         <aside className="contact-side">
-          <div className="card">
+          <Reveal className="card">
             <h3>Direct</h3>
             <ul className="contact-list modern">
               <li><MapPin size={18} className="cl-icon" /><span>Tempe, AZ</span></li>
@@ -61,9 +62,9 @@ export default function Contact() {
               <li><Linkedin size={18} className="cl-icon" /><a href="https://www.linkedin.com/in/rteja-buchaiah/" target="_blank" rel="noopener">LinkedIn</a></li>
               <li><Github size={18} className="cl-icon" /><a href="https://github.com/raviteja-1301" target="_blank" rel="noopener">GitHub</a></li>
             </ul>
-          </div>
+          </Reveal>
         </aside>
-        <div className="contact-card">
+        <Reveal className="contact-card">
           <h3>Send me a message</h3>
           <p className="muted">I'll get back to you at the email you provide.</p>
           <form ref={formRef} className="form-grid" onSubmit={onSubmit}>
@@ -74,7 +75,7 @@ export default function Contact() {
             <button className="btn primary cta" type="submit">Send Message</button>
             <p className="muted" role="status" aria-live="polite">{status}</p>
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -29,8 +29,36 @@ export default function App(){
     return () => document.removeEventListener('scroll', setActive)
   }, [])
 
+  useEffect(()=>{
+    const root = document.documentElement
+    root.style.setProperty('--mx', '50%')
+    root.style.setProperty('--my', '22%')
+
+    let raf = 0
+    let latest = null
+    const onMove = (e) => {
+      if (!e.isPrimary) return
+      latest = { x: e.clientX, y: e.clientY }
+      if (raf) return
+      raf = window.requestAnimationFrame(()=>{
+        raf = 0
+        if (!latest) return
+        const x = Math.max(0, Math.min(1, latest.x / window.innerWidth)) * 100
+        const y = Math.max(0, Math.min(1, latest.y / window.innerHeight)) * 100
+        root.style.setProperty('--mx', `${x.toFixed(2)}%`)
+        root.style.setProperty('--my', `${y.toFixed(2)}%`)
+      })
+    }
+
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => {
+      window.removeEventListener('pointermove', onMove)
+      if (raf) window.cancelAnimationFrame(raf)
+    }
+  }, [])
+
   return (
-    <div className="app" data-theme="dark">
+    <div className="app" data-theme="ivory">
       <Navbar />
       <main>
         <Home />

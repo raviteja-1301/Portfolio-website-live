@@ -4,53 +4,51 @@ import ClusterIcon from '../components/ClusterIcon.jsx'
 
 export default function Skills(){
   const containerRef = useRef(null)
-  const metaRef = useRef({ y: typeof window !== 'undefined' ? window.scrollY : 0, dir: 'down', played: null, timer: null })
+  const timerRef = useRef(null)
+  const armedRef = useRef(true)
 
   useEffect(()=>{
-    const onScroll = () => {
-      const y = window.scrollY || 0
-      metaRef.current.dir = y > metaRef.current.y ? 'down' : 'up'
-      metaRef.current.y = y
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-
     const container = containerRef.current
     if(!container) return
+
     const icons = container.querySelectorAll('.icon')
     icons.forEach((el, i)=> el.style.setProperty('--i', i))
 
+    const start = () => {
+      container.classList.remove('wave-forward', 'wave-backward')
+      void container.offsetWidth
+      container.classList.add('wave-forward')
+      clearTimeout(timerRef.current)
+      timerRef.current = setTimeout(()=>{
+        container.classList.remove('wave-forward')
+      }, 3400)
+    }
+
+    const stop = () => {
+      clearTimeout(timerRef.current)
+      container.classList.remove('wave-forward', 'wave-backward')
+    }
+
+    const threshold = 0.35
     const io = new IntersectionObserver((ents)=>{
       ents.forEach(e=>{
-        if(!e.isIntersecting) return
-        const dir = metaRef.current.dir
-        if (dir === 'down' && metaRef.current.played !== 'down'){
-          container.classList.remove('wave-backward')
-          void container.offsetWidth
-          container.classList.add('wave-forward')
-          metaRef.current.played = 'down'
-          clearTimeout(metaRef.current.timer)
-          metaRef.current.timer = setTimeout(()=>{
-            container.classList.remove('wave-forward')
-          }, 2000)
-        } else if (dir === 'up' && metaRef.current.played !== 'up'){
-          container.classList.remove('wave-forward')
-          void container.offsetWidth
-          container.classList.add('wave-backward')
-          metaRef.current.played = 'up'
-          clearTimeout(metaRef.current.timer)
-          metaRef.current.timer = setTimeout(()=>{
-            container.classList.remove('wave-backward')
-          }, 2000)
+        if (e.intersectionRatio >= threshold && armedRef.current){
+          armedRef.current = false
+          start()
+        }
+        if (e.intersectionRatio === 0){
+          armedRef.current = true
+          stop()
         }
       })
-    }, { threshold: 0.35 })
+    }, { threshold: [0, threshold], rootMargin: '0px 0px -12% 0px' })
     io.observe(container)
 
-    return ()=>{ window.removeEventListener('scroll', onScroll); io.disconnect(); clearTimeout(metaRef.current.timer) }
+    return ()=>{ io.disconnect(); stop() }
   }, [])
 
   return (
-    <section id="skills" className="section container">
+    <section id="skills" className="section container section-bg">
       <h2 className="section-title"><Reveal>Skills</Reveal></h2>
       <div ref={containerRef} className="skill-groups skills-wave">
         <Reveal className="sgroup"><h3>Programming Languages</h3><div className="icons">

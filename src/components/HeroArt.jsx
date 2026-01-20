@@ -6,10 +6,34 @@ export default function HeroArt(){
       <span className="ring dotted r3"></span>
       <span className="ring dotted r2"></span>
       <span className="ring dotted r1"></span>
-      <img src={SITE.PROFILE_IMG} className="photo-circle" alt="Raviteja Buchaiahgari" />
-      <span className="chip chip-eat">EAT</span>
-      <span className="chip chip-code">CODE</span>
-      <span className="chip chip-sleep">SLEEP</span>
+      <div className="photo-circle">
+        <img src={SITE.PROFILE_IMG} className="photo-img" alt="Raviteja Buchaiahgari" />
+      </div>
+      <div className="orbit orbit-eat" aria-hidden="true">
+        <div className="orbit-offset">
+          <span className="chip orbit-chip">EAT</span>
+        </div>
+      </div>
+      <div className="orbit orbit-prompt" aria-hidden="true">
+        <div className="orbit-offset">
+          <span className="chip orbit-chip">PROMPT</span>
+        </div>
+      </div>
+      <div className="orbit orbit-coffee" aria-hidden="true">
+        <div className="orbit-offset">
+          <span className="chip orbit-chip">COFFEE</span>
+        </div>
+      </div>
+      <div className="orbit orbit-vibe" aria-hidden="true">
+        <div className="orbit-offset">
+          <span className="chip orbit-chip">VIBE CODE</span>
+        </div>
+      </div>
+      <div className="orbit orbit-sleep" aria-hidden="true">
+        <div className="orbit-offset">
+          <span className="chip orbit-chip">SLEEP</span>
+        </div>
+      </div>
     </div>
   )
 }
