@@ -323,6 +323,8 @@ main{min-height:calc(100vh - var(--nav-h) - 80px)}
 .t-item.edu .t-card{border-left-color:var(--accent)}
 .t-item.exp .t-card{border-left-color:var(--brand)}
 .projects .t-card{border-left-color:var(--muted)}
+.projects-more{display:contents}
+.projects-toggle{display:flex;justify-content:center;margin-top:14px}
 .xcard{background:var(--surface);border:1px solid var(--border);border-left:6px solid var(--accent);padding:16px;border-radius:14px;box-shadow:var(--shadow)}
 .xcard + .xcard{margin-top:12px}
 .period{color:var(--muted);margin:0 0 8px}

@@ -1,6 +1,9 @@
 import Reveal from '../components/Reveal.jsx'
+import { useState } from 'react'
 
 export default function Projects() {
+  const [showAll, setShowAll] = useState(false)
+
   return (
     <section id="projects" className="section container section-bg">
       <h2 className="section-title"><Reveal>Projects</Reveal></h2>
@@ -24,6 +27,22 @@ export default function Projects() {
         <Reveal className="t-item">
           <div className="t-date">Fall 2025</div>
           <div className="t-card">
+            <h3>MLB Qualifying Offer Calculator (Full-Stack Web App)</h3>
+            <p className="stack">React • Vite • FastAPI • Python • REST APIs • HTML Parsing • Data Validation • JavaScript</p>
+            <ul>
+              <li>Built a full-stack React and FastAPI application to fetch and parse live MLB salary data, calculating the qualifying offer as the average of the top 125 salaries and returning structured JSON with sub-second latency.</li>
+              <li>Implemented robust server-side HTML parsing and data validation pipelines to clean malformed salary entries and normalize datasets, eliminating 100% of frontend computation errors.</li>
+              <li>Designed configurable backend histogram binning logic (10–50 bins) and exposed analytics-ready endpoints, reducing frontend processing overhead by 60% and enabling clear salary distribution visualizations.</li>
+            </ul>
+            <div className="project-links">
+              <a className="btn outline small ext" href="https://github.com/raviteja-1301/MLB-Qualifying-Offer-Analytics-Platform-React-FastAPI-.git" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal className="t-item">
+          <div className="t-date">Fall 2025</div>
+          <div className="t-card">
             <h3>Diabetes Prediction Chatbot (ML Deployment + LLM Integration)</h3>
             <p className="stack">Python • Scikit-learn • XGBoost • Flask • JavaScript • Tableau • LLMs</p>
             <ul>
@@ -37,69 +56,86 @@ export default function Projects() {
           </div>
         </Reveal>
 
-        <Reveal className="t-item">
-          <div className="t-date">Spring 2025</div>
-          <div className="t-card">
-            <h3>AI-Powered Chatbot Web Application</h3>
-            <p className="stack">JavaScript • HTML5 • CSS3 • Google Gemini API • REST APIs • UX Design • DOM Manipulation</p>
-            <ul>
-              <li>Built a fully responsive AI chatbot interface using vanilla JavaScript, HTML, and CSS, optimized for cross-device compatibility and smooth user interaction.</li>
-              <li>Integrated Google Gemini 1.5 Flash API to support real-time text and image inputs using base64 encoding, enabling dynamic and context-aware responses.</li>
-              <li>Implemented efficient DOM-based rendering, animated loading indicators, and chat history management to deliver a high-performance user experience.</li>
-            </ul>
-            <div className="project-links">
-              <a className="btn outline small ext" href="https://github.com/raviteja-1301/AI-Powered-Chatbot-Web-Application" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </Reveal>
+        <div id="projects-more" className="projects-more">
+          {showAll && (
+            <>
+              <Reveal className="t-item">
+                <div className="t-date">Spring 2025</div>
+                <div className="t-card">
+                  <h3>AI-Powered Chatbot Web Application</h3>
+                  <p className="stack">JavaScript • HTML5 • CSS3 • Google Gemini API • REST APIs • UX Design • DOM Manipulation</p>
+                  <ul>
+                    <li>Built a fully responsive AI chatbot interface using vanilla JavaScript, HTML, and CSS, optimized for cross-device compatibility and smooth user interaction.</li>
+                    <li>Integrated Google Gemini 1.5 Flash API to support real-time text and image inputs using base64 encoding, enabling dynamic and context-aware responses.</li>
+                    <li>Implemented efficient DOM-based rendering, animated loading indicators, and chat history management to deliver a high-performance user experience.</li>
+                  </ul>
+                  <div className="project-links">
+                    <a className="btn outline small ext" href="https://github.com/raviteja-1301/AI-Powered-Chatbot-Web-Application" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </Reveal>
 
-        <Reveal className="t-item">
-          <div className="t-date">Sep–Dec 2024</div>
-          <div className="t-card">
-            <h3>Book Recommendation &amp; User Analytics System</h3>
-            <p className="stack">Python • Pandas • Apache Spark • Machine Learning • K-Means • Collaborative Filtering</p>
-            <ul>
-              <li>Built a collaborative filtering recommendation system on 1M+ ratings across 270K+ books, delivering personalized top-rated recommendations.</li>
-              <li>Performed user segmentation using K-Means, Hierarchical Clustering, and DBSCAN on 10,000+ users, improving projected engagement by 25%.</li>
-              <li>Trained Linear, Logistic, and Decision Tree models to predict user demographics, achieving 98% accuracy and reducing RMSE by 50% using K-fold cross-validation.</li>
-            </ul>
-            <div className="project-links">
-              <a className="btn outline small ext" href="https://github.com/raviteja-1301/Book-Recommendation-and-User-Analytics-System" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </Reveal>
+              <Reveal className="t-item">
+                <div className="t-date">Sep–Dec 2024</div>
+                <div className="t-card">
+                  <h3>Book Recommendation &amp; User Analytics System</h3>
+                  <p className="stack">Python • Pandas • Apache Spark • Machine Learning • K-Means • Collaborative Filtering</p>
+                  <ul>
+                    <li>Built a collaborative filtering recommendation system on 1M+ ratings across 270K+ books, delivering personalized top-rated recommendations.</li>
+                    <li>Performed user segmentation using K-Means, Hierarchical Clustering, and DBSCAN on 10,000+ users, improving projected engagement by 25%.</li>
+                    <li>Trained Linear, Logistic, and Decision Tree models to predict user demographics, achieving 98% accuracy and reducing RMSE by 50% using K-fold cross-validation.</li>
+                  </ul>
+                  <div className="project-links">
+                    <a className="btn outline small ext" href="https://github.com/raviteja-1301/Book-Recommendation-and-User-Analytics-System" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </Reveal>
 
-        <Reveal className="t-item">
-          <div className="t-date">Oct–Nov 2024</div>
-          <div className="t-card">
-            <h3>IPL Match Analytics &amp; Data Visualization (Tableau)</h3>
-            <p className="stack">Tableau • Data Cleaning • Interactive Dashboards • Performance Optimization</p>
-            <ul>
-              <li>Developed a large-scale IPL analytics dashboard using 243,817 ball-by-ball records and 1,024 match summaries, creating 10+ interactive visualizations.</li>
-              <li>Reduced missing data impact from 100% to 0% and improved analysis efficiency by 60% through preprocessing and optimization.</li>
-              <li>Enhanced dashboard clarity by optimizing data-ink ratio from 80% to 100% and implementing filters, drill-downs, and calculated fields, reducing analysis time by 40%.</li>
-            </ul>
-            <div className="project-links">
-              <a className="btn outline small ext" href="https://github.com/raviteja-1301/IPL-Match-Analytics-Data-Visualization-using-Tableau" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </Reveal>
+              <Reveal className="t-item">
+                <div className="t-date">Oct–Nov 2024</div>
+                <div className="t-card">
+                  <h3>IPL Match Analytics &amp; Data Visualization (Tableau)</h3>
+                  <p className="stack">Tableau • Data Cleaning • Interactive Dashboards • Performance Optimization</p>
+                  <ul>
+                    <li>Developed a large-scale IPL analytics dashboard using 243,817 ball-by-ball records and 1,024 match summaries, creating 10+ interactive visualizations.</li>
+                    <li>Reduced missing data impact from 100% to 0% and improved analysis efficiency by 60% through preprocessing and optimization.</li>
+                    <li>Enhanced dashboard clarity by optimizing data-ink ratio from 80% to 100% and implementing filters, drill-downs, and calculated fields, reducing analysis time by 40%.</li>
+                  </ul>
+                  <div className="project-links">
+                    <a className="btn outline small ext" href="https://github.com/raviteja-1301/IPL-Match-Analytics-Data-Visualization-using-Tableau" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </Reveal>
 
-        <Reveal className="t-item">
-          <div className="t-date">Fall 2024</div>
-          <div className="t-card">
-            <h3>Taxi Booking App Database System (Uber/Lyft Style)</h3>
-            <p className="stack">SQL Server • SQL • Database Design • Stored Procedures • Triggers • Views</p>
-            <ul>
-              <li>Designed a normalized relational database schema for a taxi booking platform managing users, drivers, trips, and payments, improving query efficiency by 40%.</li>
-              <li>Implemented stored procedures, triggers, and views to automate auditing, monitor operations, and generate insights on driver performance and user activity.</li>
-              <li>Built user-defined functions (UDFs) to compute metrics such as average driver ratings and trip statistics, enabling real-time analytics and reporting.</li>
-            </ul>
-            <div className="project-links">
-              <a className="btn outline small ext" href="https://github.com/raviteja-1301/Taxi-Booking-App-Database-System-Uber-Lyft-" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </Reveal>
+              <Reveal className="t-item">
+                <div className="t-date">Fall 2024</div>
+                <div className="t-card">
+                  <h3>Taxi Booking App Database System (Uber/Lyft Style)</h3>
+                  <p className="stack">SQL Server • SQL • Database Design • Stored Procedures • Triggers • Views</p>
+                  <ul>
+                    <li>Designed a normalized relational database schema for a taxi booking platform managing users, drivers, trips, and payments, improving query efficiency by 40%.</li>
+                    <li>Implemented stored procedures, triggers, and views to automate auditing, monitor operations, and generate insights on driver performance and user activity.</li>
+                    <li>Built user-defined functions (UDFs) to compute metrics such as average driver ratings and trip statistics, enabling real-time analytics and reporting.</li>
+                  </ul>
+                  <div className="project-links">
+                    <a className="btn outline small ext" href="https://github.com/raviteja-1301/Taxi-Booking-App-Database-System-Uber-Lyft-" target="_blank" rel="noopener">GitHub ↗</a>
+                  </div>
+                </div>
+              </Reveal>
+            </>
+          )}
+        </div>
+      </div>
+      <div className="projects-toggle">
+        <button
+          type="button"
+          className="btn outline small"
+          aria-expanded={showAll}
+          aria-controls="projects-more"
+          onClick={() => setShowAll(v => !v)}
+        >
+          {showAll ? 'Show fewer projects' : 'See more projects'}
+        </button>
       </div>
     </section>
   )

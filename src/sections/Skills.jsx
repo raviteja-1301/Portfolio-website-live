@@ -65,7 +65,10 @@ export default function Skills(){
           <div className="icon"><i className="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
           <div className="icon"><i className="devicon-express-original colored"></i><span>Express</span></div>
           <div className="icon"><i className="devicon-react-original colored"></i><span>React</span></div>
-          <div className="icon"><i className="devicon-fastapi-plain colored"></i><span>REST APIs</span></div>
+          <div className="icon"><i className="devicon-fastapi-plain colored"></i><span>FastAPI</span></div>
+          <div className="icon"><i className="devicon-flask-original colored"></i><span>Flask</span></div>
+          <div className="icon"><i className="devicon-graphql-plain colored"></i><span>GraphQL</span></div>
+          <div className="icon txt">🔗<span>REST APIs</span></div>
         </div></Reveal>
 
         <Reveal className="sgroup"><h3>Data Tools</h3><div className="icons">
