@@ -1,6 +1,150 @@
 import Reveal from '../components/Reveal.jsx'
 import { useEffect, useRef } from 'react'
+import {
+  Activity,
+  Bot,
+  Boxes,
+  Brain,
+  Braces,
+  Cable,
+  Clock3,
+  Database,
+  Gauge,
+  GitBranch,
+  GitMerge,
+  KeyRound,
+  LineChart,
+  Lock,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  TestTube2,
+  Workflow,
+  Wrench,
+} from 'lucide-react'
 import ClusterIcon from '../components/ClusterIcon.jsx'
+
+const SKILL_GROUPS = [
+  {
+    title: 'Languages and Scripting',
+    items: [
+      { label: 'Java', devicon: 'devicon-java-plain' },
+      { label: 'Python', devicon: 'devicon-python-plain' },
+      { label: 'JavaScript', devicon: 'devicon-javascript-plain' },
+      { label: 'TypeScript', devicon: 'devicon-typescript-plain' },
+      { label: 'SQL', devicon: 'devicon-mysql-plain' },
+      { label: 'C++', devicon: 'devicon-cplusplus-plain' },
+      { label: 'Bash', devicon: 'devicon-bash-plain' },
+    ],
+  },
+  {
+    title: 'Backend and API Development',
+    items: [
+      { label: 'FastAPI', devicon: 'devicon-fastapi-plain' },
+      { label: 'Flask', devicon: 'devicon-flask-original' },
+      { label: 'Node.js', devicon: 'devicon-nodejs-plain' },
+      { label: 'REST APIs', icon: Braces },
+      { label: 'GraphQL', devicon: 'devicon-graphql-plain' },
+      { label: 'gRPC', icon: Cable },
+      { label: 'Microservices', icon: Boxes },
+    ],
+  },
+  {
+    title: 'Frontend Technologies',
+    items: [
+      { label: 'React.js', devicon: 'devicon-react-original' },
+      { label: 'Redux', devicon: 'devicon-redux-original' },
+      { label: 'Next.js', devicon: 'devicon-nextjs-original' },
+      { label: 'HTML5', devicon: 'devicon-html5-plain' },
+      { label: 'CSS3', devicon: 'devicon-css3-plain' },
+      { label: 'Bootstrap', devicon: 'devicon-bootstrap-plain' },
+    ],
+  },
+  {
+    title: 'Cloud and Infrastructure',
+    items: [
+      { label: 'AWS', devicon: 'devicon-amazonwebservices-original' },
+      { label: 'Azure', devicon: 'devicon-azure-plain' },
+      { label: 'Docker', devicon: 'devicon-docker-plain' },
+      { label: 'Kubernetes', devicon: 'devicon-kubernetes-plain' },
+      { label: 'Terraform', devicon: 'devicon-terraform-plain' },
+    ],
+  },
+  {
+    title: 'Delivery and Platform',
+    items: [
+      { label: 'Jenkins', devicon: 'devicon-jenkins-line' },
+      { label: 'GitHub Actions', devicon: 'devicon-github-original' },
+      { label: 'ArgoCD', icon: GitBranch },
+      { label: 'GitOps', icon: GitMerge },
+      { label: 'CI/CD', icon: Workflow },
+    ],
+  },
+  {
+    title: 'Databases and Caching',
+    items: [
+      { label: 'PostgreSQL', devicon: 'devicon-postgresql-plain' },
+      { label: 'MySQL', devicon: 'devicon-mysql-plain' },
+      { label: 'MongoDB', devicon: 'devicon-mongodb-plain' },
+      { label: 'TimescaleDB', icon: Clock3 },
+      { label: 'Redis', devicon: 'devicon-redis-plain' },
+      { label: 'NoSQL', icon: Database },
+    ],
+  },
+  {
+    title: 'Machine Learning and AI',
+    items: [
+      { label: 'scikit-learn', devicon: 'devicon-python-plain' },
+      { label: 'XGBoost', icon: LineChart },
+      { label: 'TensorFlow', devicon: 'devicon-tensorflow-original' },
+      { label: 'NLP', icon: Brain },
+      { label: 'Spark', custom: 'spark' },
+      { label: 'OpenAI APIs', icon: Bot },
+      { label: 'Prompt Engineering', icon: Sparkles },
+    ],
+  },
+  {
+    title: 'Testing and Monitoring',
+    items: [
+      { label: 'JUnit', icon: TestTube2 },
+      { label: 'Jest', devicon: 'devicon-jest-plain' },
+      { label: 'pytest', icon: TestTube2 },
+      { label: 'Prometheus', devicon: 'devicon-prometheus-original' },
+      { label: 'Grafana', devicon: 'devicon-grafana-original' },
+      { label: 'ELK Stack', icon: Activity },
+      { label: 'APM', icon: Gauge },
+    ],
+  },
+  {
+    title: 'Workflow and Security',
+    items: [
+      { label: 'Maven', icon: Wrench },
+      { label: 'Git', devicon: 'devicon-git-plain' },
+      { label: 'Agile', icon: Rocket },
+      { label: 'SDLC', icon: Workflow },
+      { label: 'OAuth 2.0', icon: Lock },
+      { label: 'RBAC', icon: KeyRound },
+      { label: 'API Gateway Security', icon: ShieldCheck },
+    ],
+  },
+]
+
+function SkillGlyph({ item }){
+  if (item.custom === 'spark'){
+    return <ClusterIcon size={34} />
+  }
+
+  if (item.devicon){
+    return <i className={`${item.devicon} colored`} aria-hidden="true"></i>
+  }
+
+  if (item.icon){
+    const Icon = item.icon
+    return <Icon size={34} strokeWidth={1.9} aria-hidden="true" />
+  }
+
+  return <Braces size={34} strokeWidth={1.9} aria-hidden="true" />
+}
 
 export default function Skills(){
   const containerRef = useRef(null)
@@ -51,46 +195,19 @@ export default function Skills(){
     <section id="skills" className="section container section-bg">
       <h2 className="section-title"><Reveal>Skills</Reveal></h2>
       <div ref={containerRef} className="skill-groups skills-wave">
-        <Reveal className="sgroup"><h3>Programming Languages</h3><div className="icons">
-          <div className="icon"><i className="devicon-java-plain colored"></i><span>Java</span></div>
-          <div className="icon"><i className="devicon-python-plain colored"></i><span>Python</span></div>
-          <div className="icon"><i className="devicon-c-plain colored"></i><span>C</span></div>
-          <div className="icon"><i className="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
-          <div className="icon"><i className="devicon-mysql-plain colored"></i><span>SQL</span></div>
-          <div className="icon"><i className="devicon-html5-plain colored"></i><span>HTML</span></div>
-          <div className="icon"><i className="devicon-css3-plain colored"></i><span>CSS</span></div>
-        </div></Reveal>
-
-        <Reveal className="sgroup"><h3>Frameworks & Web Technologies</h3><div className="icons">
-          <div className="icon"><i className="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
-          <div className="icon"><i className="devicon-express-original colored"></i><span>Express</span></div>
-          <div className="icon"><i className="devicon-react-original colored"></i><span>React</span></div>
-          <div className="icon"><i className="devicon-fastapi-plain colored"></i><span>FastAPI</span></div>
-          <div className="icon"><i className="devicon-flask-original colored"></i><span>Flask</span></div>
-          <div className="icon"><i className="devicon-graphql-plain colored"></i><span>GraphQL</span></div>
-          <div className="icon txt">🔗<span>REST APIs</span></div>
-        </div></Reveal>
-
-        <Reveal className="sgroup"><h3>Data Tools</h3><div className="icons">
-          <div className="icon"><i className="devicon-python-plain colored"></i><span>scikit‑learn</span></div>
-          <div className="icon spark"><ClusterIcon /><span>Spark</span></div>
-          <div className="icon"><i className="devicon-numpy-original colored"></i><span>Regression</span></div>
-          <div className="icon"><i className="devicon-pandas-original colored"></i><span>Clustering</span></div>
-        </div></Reveal>
-
-        <Reveal className="sgroup"><h3>Cloud & Development Tools</h3><div className="icons">
-          <div className="icon"><i className="devicon-git-plain colored"></i><span>Git</span></div>
-          <div className="icon"><i className="devicon-amazonwebservices-original colored"></i><span>AWS</span></div>
-          <div className="icon"><i className="devicon-docker-plain colored"></i><span>Docker</span></div>
-          <div className="icon"><i className="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
-        </div></Reveal>
-
-        <Reveal className="sgroup"><h3>BI & Visualization</h3><div className="icons">
-          <div className="icon txt">📊<span>Tableau</span></div>
-          <div className="icon txt">📈<span>Power BI</span></div>
-          <div className="icon txt">🧮<span>Excel</span></div>
-          <div className="icon txt">🌀<span>Agile (SCRUM)</span></div>
-        </div></Reveal>
+        {SKILL_GROUPS.map((group) => (
+          <Reveal key={group.title} className="sgroup">
+            <h3>{group.title}</h3>
+            <div className="icons">
+              {group.items.map((item) => (
+                <div key={`${group.title}-${item.label}`} className={`icon${item.custom === 'spark' ? ' spark' : ''}`}>
+                  <SkillGlyph item={item} />
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   )

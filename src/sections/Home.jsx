@@ -4,6 +4,26 @@ import HeroArt from "../components/HeroArt.jsx";
 import { SITE } from "../config";
 import { useEffect } from "react";
 
+const marqueeSkills = [
+  "Python",
+  "Java",
+  "FastAPI",
+  "GraphQL",
+  "gRPC",
+  "Microservices",
+  "AWS",
+  "Docker",
+  "Kubernetes",
+  "CI/CD",
+  "PostgreSQL",
+  "Redis",
+  "Apache Spark",
+  "Airflow",
+  "Prometheus",
+  "Grafana",
+  "OpenAI API",
+];
+
 export default function Home() {
   // Fix 100vh on mobile using dynamic viewport unit fallback
   useEffect(() => {
@@ -80,22 +100,9 @@ export default function Home() {
             </div>
             <div className="marquee" aria-hidden="true">
               <div className="marquee-track">
-                <span>Java</span>
-                <span>Python</span>
-                <span>React</span>
-                <span>AWS</span>
-                <span>Docker</span>
-                <span>Tableau</span>
-                <span>Spark</span>
-                <span>MongoDB</span>
-                <span>Java</span>
-                <span>Python</span>
-                <span>React</span>
-                <span>AWS</span>
-                <span>Docker</span>
-                <span>Tableau</span>
-                <span>Spark</span>
-                <span>MongoDB</span>
+                {[...marqueeSkills, ...marqueeSkills].map((skill, idx) => (
+                  <span key={`${skill}-${idx}`}>{skill}</span>
+                ))}
               </div>
             </div>
           </Reveal>

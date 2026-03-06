@@ -8,42 +8,50 @@ export default function About() {
       </h2>
       <div className="mix-timeline">
         <Reveal className="t-item exp">
-          <div className="t-date">Jan 2025 - Present</div>
+          <div className="t-date">Professional Summary</div>
           <div className="t-card">
-            <h3>Data Analyst (Tableau) - ASU Business Intelligence</h3>
+            <h3>Software Engineer</h3>
             <p>
-              Designed and deployed 15+ scalable Tableau dashboards for 300+
-              stakeholders, automating reporting and improving load times by 60%
-              while boosting engagement by 35%.
+              Software Engineer with 4+ years of experience building cloud-native,
+              distributed systems for mission-critical applications. Strong in
+              Python, Java, and JavaScript with hands-on expertise in low-latency
+              microservices, real-time APIs, and production ML-enabled systems
+              using FastAPI, Flask, GraphQL, gRPC, Spark, Airflow, and AWS EKS.
             </p>
-          </div>
-        </Reveal>
-        <Reveal className="t-item edu">
-          <div className="t-date">Jan 2024 – Dec 2025</div>
-          <div className="t-card">
-            <h3>M.S. Information Technology - Arizona State University</h3>
-            <p>CGPA: 4.33/4</p>
           </div>
         </Reveal>
         <Reveal className="t-item exp">
-          <div className="t-date">Jul 2022 – Dec 2023</div>
+          <div className="t-date">Apr 2025 - Present</div>
           <div className="t-card">
-            <h3>Software Engineering Intern - Smart SOC Solutions</h3>
+            <h3>Software Engineer - PayPal (CA)</h3>
             <p>
-              Developed ML models, optimized data pipelines, and built
-              interactive dashboards, improving semiconductor fault detection
-              accuracy by 20% and accelerating analysis by 30%.
+              Building low-latency payment and fraud-risk services with Python,
+              FastAPI, GraphQL, gRPC, Kubernetes, and production monitoring.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal className="t-item exp">
+          <div className="t-date">Aug 2020 - Nov 2023</div>
+          <div className="t-card">
+            <h3>Software Engineer - Freshworks (India)</h3>
+            <p>
+              Built scalable backend services and APIs with Python, FastAPI,
+              Flask, Node.js, and GraphQL, and deployed microservices on AWS
+              with Kubernetes and CI/CD pipelines.
             </p>
           </div>
         </Reveal>
         <Reveal className="t-item edu">
-          <div className="t-date">2018 – 2023</div>
+          <div className="t-date">Education</div>
           <div className="t-card">
             <h3>
-              B.Tech (Integrated), Electronics & Communication - Indian
-              Institute of Information Technology, Kancheepuram
+              Master's in Information Technology - Arizona State University,
+              Tempe, AZ
             </h3>
-            <p>CGPA: 7.77/10</p>
+            <p>
+              Bachelor's in Electronics and Communication Engineering - Indian
+              Institute of Information Technology, TN, India
+            </p>
           </div>
         </Reveal>
       </div>
